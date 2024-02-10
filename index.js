@@ -12,29 +12,29 @@ program.parse();
 
 const options = program.opts();
 
-// TODO: рефакторити
+
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-          // ...
+
           const contactsAll = await listContacts();
           console.table(contactsAll);
       break;
 
     case "get":
-          // ... id
+
           const get = await getContactById(id);
           console.log(get);
       break;
 
     case "add":
-          // ... name email phone
+
           const add = await addContact(name, email, phone);
           console.log(add);
       break;
 
     case "remove":
-          // ... id
+
           const remove = await removeContact(id);
           console.log(remove);
       break;

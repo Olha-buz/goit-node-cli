@@ -5,7 +5,7 @@ const { v4 } = require('uuid');
 const contactsPath = path.join(__dirname, 'db', 'contacts.json');
 
 async function listContacts() {
-    // ...твій код. Повертає масив контактів.
+
     try {
         const data = await fs.readFile(contactsPath);
         return JSON.parse(data);
@@ -15,7 +15,7 @@ async function listContacts() {
 }
 
 async function getContactById(contactId) {
-    // ...твій код. Повертає об'єкт контакту з таким id. Повертає null, якщо контакт з таким id не знайдений.
+
     try {
         const contacts = await listContacts();
         const findContact = contacts.find(contact => contact.id === contactId);
@@ -30,7 +30,7 @@ async function getContactById(contactId) {
 }
 
 async function removeContact(contactId) {
-    // ...твій код. Повертає об'єкт видаленого контакту. Повертає null, якщо контакт з таким id не знайдений.
+
     try {
         const contacts = await listContacts();
         const index = contacts.findIndex(contact => contact.id === contactId);
@@ -46,7 +46,7 @@ async function removeContact(contactId) {
 }
 
 async function addContact(name, email, phone) {
-    // ...твій код. Повертає об'єкт доданого контакту (з id).
+
     try {
         const contacts = await listContacts();
         const newContact = {
