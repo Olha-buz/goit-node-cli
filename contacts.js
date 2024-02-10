@@ -1,5 +1,5 @@
-const fs = require('node:fs/promises');
-const path = require('node:path');
+const fs = require('fs/promises');
+const path = require('path');
 const { v4 } = require('uuid');
 
 const contactsPath = path.join(__dirname, 'db', 'contacts.json');
@@ -35,8 +35,8 @@ async function removeContact(contactId) {
         const contacts = await listContacts();
         const index = contacts.findIndex(contact => contact.id === contactId);
         if (index === -1) { return undefined };
-        const removeContact = contacts.splice(index, 1)[0];
-        await fs.wtiteFile(contactsPath, JSON.stringify(contacts, null, 2));
+        const removeContact = contacts.splice(index, 1);
+        await fs.wtiteFile(contactsPath, JSON.stringify(contacts));
         return removeContact;
     } catch (err) {
         console.log(err.message);
