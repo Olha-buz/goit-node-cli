@@ -36,7 +36,7 @@ async function removeContact(contactId) {
         const index = contacts.findIndex(contact => contact.id === contactId);
         if (index === -1) { return undefined };
         const removeContact = contacts.splice(index, 1);
-        await fs.wtiteFile(contactsPath, JSON.stringify(contacts));
+        await fs.writeFile(contactsPath, JSON.stringify(contacts));
         return removeContact;
     } catch (err) {
         console.log(err.message);
